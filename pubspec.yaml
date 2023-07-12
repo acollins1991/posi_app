@@ -18,12 +18,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  dart_pre_commit: ^4.0.0
-  git_hooks: ^1.0.0
-
-dependency_overrides:
-  dart_test_tools: 4.5.3+1
+  flutter_lints: ^2.0.2
+  dart_pre_commit: ^5.2.0+1
+  git_hooks: ^1.0.1
 
 flutter:
   uses-material-design: true
