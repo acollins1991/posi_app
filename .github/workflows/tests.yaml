@@ -1,11 +1,12 @@
 name: Tests
 on: [push, pull_request]
 jobs:
-  steps:
-    - uses: actions/checkout@v3
-    - uses: subosito/flutter-action@v2
-      with:
-        flutter-version: "3.10.5"
-        channel: "stable"
-    - run: flutter pub get
-    - run: flutter test
+  run_tests:
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.10.5"
+          channel: "stable"
+      - run: flutter pub get
+      - run: flutter test
