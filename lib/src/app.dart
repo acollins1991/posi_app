@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:posi_app/src/views/login_view.dart';
+import 'package:posi_app/src/views/storybook_view.dart';
 
 import 'settings/settings_controller.dart';
 
@@ -9,12 +10,19 @@ import 'views/home_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
-  const MyApp({
+  MyApp({
     super.key,
     required this.settingsController,
   });
 
   final SettingsController settingsController;
+
+  final routes = {
+    '/': (context) => const HomeView(),
+    '/login': (context) => const LoginView(),
+    // find way to make this conditional
+    '/storybook': (context) => const StorybookView()
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +64,11 @@ class MyApp extends StatelessWidget {
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
-          theme: ThemeData(),
+          theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
 
-          routes: {
-            '/': (context) => const HomeView(),
-            '/login': (context) => const LoginView(),
-          },
+          routes: routes,
         );
       },
     );

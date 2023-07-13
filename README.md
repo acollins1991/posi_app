@@ -1,5 +1,10 @@
 # posi_app
 
+Users Material 3;
+
+https://api.flutter.dev/flutter/material/ThemeData/useMaterial3.html
+https://m3.material.io/
+
 A new Flutter project.
 
 ## Getting Started

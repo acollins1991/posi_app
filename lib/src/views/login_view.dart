@@ -65,12 +65,49 @@ class _LoginSplashTop extends StatelessWidget {
   }
 }
 
+class _LoginButtons extends StatelessWidget {
+  onPressed() {
+    print('button');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color.fromRGBO(255, 255, 255, 1),
+      child: SizedBox(
+          width: (MediaQuery.of(context).size.width),
+          height: ((MediaQuery.of(context).size.height) / 3) * 1,
+          child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                ElevatedButton(
+                    onPressed: onPressed,
+                    child: const Text(
+                      'Create Account',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/');
+                    },
+                    child: const Text(
+                      'Signin',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ))
+              ]))),
+    );
+  }
+}
+
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return _LoginSplashTop();
+    return Wrap(
+      children: [_LoginSplashTop(), _LoginButtons()],
+    );
     // return const Column(
     //   children: [
     //     Text(
